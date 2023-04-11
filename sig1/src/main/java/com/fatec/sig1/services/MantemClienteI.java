@@ -24,10 +24,10 @@ import com.fatec.sig1.model.Endereco;
  * 
  * @author
  * 
- * Essa classe implementa o mantem cliente interface - ele vai implementar todas as assinatura da interface
+ *         Essa classe implementa o mantem cliente interface - ele vai
+ *         implementar todas as assinatura da interface
  *
  */
-
 
 @Service
 public class MantemClienteI implements MantemCliente {
@@ -55,6 +55,7 @@ public class MantemClienteI implements MantemCliente {
 	@Override
 	public Optional<Cliente> save(Cliente cliente) {
 		logger.info(">>>>>> servico save chamado ");
+		cliente.setDataCadastro(new DateTime());
 		Endereco endereco = obtemEndereco(cliente.getCep());
 		cliente.setEndereco(endereco.getLogradouro());
 		return Optional.ofNullable(repository.save(cliente));
