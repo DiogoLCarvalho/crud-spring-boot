@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fatec.sig1.model.Cliente;
 import com.fatec.sig1.model.ClienteDTO;
 import com.fatec.sig1.model.Endereco;
+import com.fatec.sig1.services.MantemCliente;
 import com.fatec.sig1.services.MantemClienteI;
 
 @RestController
@@ -30,7 +31,7 @@ import com.fatec.sig1.services.MantemClienteI;
  */
 public class APIClienteController {
 	@Autowired
-	MantemClienteI mantemCliente;
+	MantemCliente mantemCliente;
 	Cliente cliente;
 	Logger logger = LogManager.getLogger(this.getClass());
 

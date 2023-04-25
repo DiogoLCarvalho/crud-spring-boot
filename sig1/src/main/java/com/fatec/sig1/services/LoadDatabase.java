@@ -12,22 +12,27 @@ import com.fatec.sig1.model.MantemClienteRepository;
 @Configuration
 class LoadDatabase {
 	private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
-	@Autowired
-	MantemClienteRepository clienteRepository;
-
+	
 	@Bean
 	CommandLineRunner initDatabase(MantemClienteRepository repository) {
 		return args -> {
+			
 			repository.deleteAll();
+			
 			Cliente cliente1 = new Cliente("Jose da Silva", "01/03/1964", "M", "59672555598", "03694000", "2983");
 			cliente1.setEndereco("Aguia de Haia");
 			log.info("Preloading " + repository.save(cliente1));
+			
 			Cliente cliente2 = new Cliente("Carlos Alberto", "19/08/1970", "M", "16467548671", "04280130", "59");
 			cliente2.setEndereco("Rua Frei Joao");
 			log.info("Preloading " + repository.save(cliente2));
+			
 			Cliente cliente3 = new Cliente("Tulio Maravilha", "19/05/1990", "M", "40028922", "0430526", "50");
 			cliente3.setEndereco("Guilhermina de Souza, Paula");
 			log.info("Preloading " + repository.save(cliente3));
+			
+			
+			
 		};
 	}
 }
